@@ -1,0 +1,4 @@
+cd $1
+mkdir Afbeeldingen
+find *.jpg  -exec mv {} $1Afbeeldingen \;
+find *.png  -exec mv {} $1Afbeeldingen \;
