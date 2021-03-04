@@ -1,0 +1,8 @@
+cd $1
+mkdir Afbeeldingen
+for photo in *.jpg;  do
+	mv $photo $1/Afbeeldingen
+done
+for photo in *.png	;  do
+	mv $photo $1/Afbeeldingen
+done
