@@ -1,0 +1,14 @@
+case $1 in
+*.sh)
+	./$1
+;;
+*.py)
+	python3 $1
+;;
+*.cpp)
+	cat $1
+;;
+*)
+	echo "ongeldig bestandsformaat"
+;;
+esac
