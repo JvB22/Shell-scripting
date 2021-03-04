@@ -1,4 +1,0 @@
-cd $1
-for photo in *.jpg;  do
-	echo Moving $photo
-done
