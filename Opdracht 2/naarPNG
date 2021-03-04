@@ -1,0 +1,4 @@
+cd $1
+for photo in *.jpg;  do
+	convert $photo    -resize 128x128  $photo
+done
