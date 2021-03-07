@@ -1,0 +1,11 @@
+startdir=$(pwd)
+rm $startdir/$3 2>/dev/null
+touch $startdir/$3
+cd $1
+for file in *;  do
+	$2 $file >/dev/null 2>/dev/null
+	if $(test $? -eq 0)
+	then echo "$file: geslaagd" >> $startdir/$3
+	else echo "$file: niet geslaagd"  >> $startdir/$3
+	fi
+done
