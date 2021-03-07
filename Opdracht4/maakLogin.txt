@@ -1,0 +1,33 @@
+touch $1
+echo " Voer je naam in:"
+read naam
+if $(test -z $naam)
+	then whoami >>$1
+	else echo "$naam" >>$1
+fi
+echo "Voer je wachtwoord in"
+read entry1
+if [ ${#entry1} -ge 8 ]
+	then true
+else
+	echo "Dit wachtwoord is te kort"
+fi
+while :
+do
+	genoeg=false
+	echo "Voer je wachtwoord in"
+	read entry2
+	if [ ${#entry2} -ge 8 ]
+		then true
+	else
+		echo "Dit wachtwoord is te kort"
+	fi
+if [ ${#entry2} -ge 8 ]
+	then genoeg=true
+fi
+	if $(test $entry1 = $entry2) && $genoeg
+		then echo "ww is set"
+		break
+	fi
+	entry1=$entry2
+done
