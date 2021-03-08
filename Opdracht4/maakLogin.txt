@@ -1,9 +1,10 @@
 touch $1
 echo " Voer je naam in:"
-read naam
+read -r naam
+echo $naam
 if $(test -z $naam)
 	then whoami >>$1
-	else echo "$naam" >>$1
+	else echo "$naam" >$1
 fi
 echo "Voer je wachtwoord in"
 read entry1
@@ -26,7 +27,10 @@ if [ ${#entry2} -ge 8 ]
 	then genoeg=true
 fi
 	if $(test $entry1 = $entry2) && $genoeg
-		then echo "ww is set"
+		then touch tempww
+		echo $entry1>tempww
+		ww=($(md5sum tempww))
+		echo $ww >> $1
 		break
 	fi
 	entry1=$entry2
