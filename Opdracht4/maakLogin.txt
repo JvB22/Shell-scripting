@@ -1,7 +1,6 @@
 touch $1
 echo " Voer je naam in:"
 read -r naam
-echo $naam
 if $(test -z $naam)
 	then whoami >>$1
 	else echo "$naam" >$1
@@ -31,6 +30,7 @@ fi
 		echo $entry1>tempww
 		ww=($(md5sum tempww))
 		echo $ww >> $1
+		rm tempww
 		break
 	fi
 	entry1=$entry2
