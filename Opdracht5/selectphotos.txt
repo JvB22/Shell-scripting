@@ -1,0 +1,20 @@
+cd $1
+mkdir goedgekeurd
+mkdir afgekeurd
+echo "Alle afbeeldingen in deze map zullen nagelopen worden, voer in 'g' om de afbeelding in de 'goedgekeurd' map te zetten, en voer iets anders in om de afbeelding in de 'afgekeurd'  map te zetten"
+for photo in *.jpg;  do
+	xdg-open $photo
+	read choice
+	if $(test $choice = "g")
+		then mv $photo goedgekeurd
+	else mv $photo afgekeurd
+	fi
+done
+for photo in *.png;  do
+	xdg-open $photo
+	read choice
+	if $(test $choice = "g")
+		then mv $photo goedgekeurd
+	else mv $photo afgekeurd
+	fi
+done
